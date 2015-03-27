@@ -1,8 +1,10 @@
-/* An Internet Explorer PNG Opacity Bug Work-Around, Version 1
+/* An Internet Explorer PNG Opacity Bug Work-Around, Version 1.1
 
    Copyright 2004 by Brian Sexton
 
-   Sunday, January 4th, 2004
+   Created: Sunday, January 4th, 2004
+
+   Updated: Friday, June 25th, 2004
 
 
   ------------------------------------------------------------------------------
@@ -10,7 +12,7 @@
   ------------------------------------------------------------------------------
 
      Microsoft Internet Explorer 6 for Windows does not support variable opacity
-     in PNG images as most actively developed web browsers do, so I found and
+     in PNG images as most actively developed Web browsers do, so I found and
      further developed a work-around for this peculiar omission.
 
      Microsoft is aware of the problem and suggests a work-around in Microsoft
@@ -27,7 +29,7 @@
      Unfortunately, Microsoft's work-around for its non-standard PNG rendering
      is itself non-standard, but by implementing it via JavaScript rather than
      directly in a stylesheet, it can be restricted to Internet Explorer,
-     ensuring that other web browsers and CSS validators will not be bothered by
+     ensuring that other Web browsers and CSS validators will not be bothered by
      Microsoft's non-standard CSS "filter" property.
 
 
@@ -48,7 +50,7 @@
   ------------------------------------------------------------------------------
 
      PNG IMG elements are replaced ONLY if the client identifies itself as
-     "Microsoft Internet Explorer" since other popular web browsers support
+     "Microsoft Internet Explorer" since other popular Web browsers support
      variable PNG transparency without work-arounds.
 
      When linked PNG IMG elements are replaced by DIV elements, Internet
@@ -90,7 +92,7 @@
      this work-around is not necessary for Internet Explorer 5.0 or later for
      Mac OS X as that version of Internet Explorer offers full support for
      variable PNG opacity), but I am not inclined to spend a great deal of time
-     worrying about either obsolete and discontinued web browsers.
+     worrying about either obsolete and discontinued Web browsers.
 
 
   ------------------------------------------------------------------------------
@@ -140,6 +142,13 @@
        not altered except for a single curly brace being moved to line up
        vertically with its counterpart, so the version number was not changed.
 
+
+     Friday, June 25th, 2004
+
+       Internet Explorer-specific "filters" array checking was added to the
+       initial execution condition to prevent user agents masquerading as
+       Internet Explorer (Opera, etc.) from executing the work-around.
+
 */
 
 
@@ -147,13 +156,13 @@
 function stylePNGs()
 {
 
-  if (window.navigator.appName && window.navigator.appName == "Microsoft Internet Explorer")
+  if (window.navigator.appName && window.navigator.appName == "Microsoft Internet Explorer" && document.body.filters)
   {
 
     var PNGs = new Array();
 
 
-    // Find all PNG IMG elements in the document.
+    //  Find all PNG IMG elements in the document.
 
     for (var i = 0; i < document.images.length; i++)
     {
@@ -168,8 +177,8 @@ function stylePNGs()
     }
 
 
-    // Replace all PNG IMG elements with DIV elements to which Microsoft's
-    // suggested work-around are applied.
+    //  Replace all PNG IMG elements with DIV elements to which Microsoft's
+    //  suggested work-around are applied.
 
     for (var i = 0; i < PNGs.length; i++)
     {
