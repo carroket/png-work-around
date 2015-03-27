@@ -64,17 +64,21 @@ Finally, create CSS styles for the resulting DIV elements.  For example, if you 
 
 ## History
 
-### Sunday, January 4th, 2004
+### Sunday, January 4, 2004
 
 The first version of this work-around was created.
 
-### Tuesday, January 13th, 2004
+### Tuesday, January 13, 2004
 
 The usage documentation was updated to include information about avoiding potential window.onload event handler conflicts.  The functional code was not altered except for a single curly brace being moved to line up vertically with its counterpart, so the version number was not changed.
 
-### Friday, June 25th, 2004
+### Friday, June 25, 2004
 
 Internet Explorer-specific "filters" array checking was added to the initial execution condition to prevent user agents masquerading as Internet Explorer (Opera, etc.) from executing the work-around.
+
+### Friday, March 27, 2015
+
+Tidy up the script, including explicitly declaring some variables that should have been so declared eleven years ago.
 
 ## Who made this?
 
