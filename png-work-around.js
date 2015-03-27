@@ -12,53 +12,46 @@
 
 \*============================================================================*/
 
+function stylePNGs() {
 
-function stylePNGs()
-{
+	if (window.navigator.appName && window.navigator.appName == "Microsoft Internet Explorer" && document.body.filters) {
 
-  if (window.navigator.appName && window.navigator.appName == "Microsoft Internet Explorer" && document.body.filters)
-  {
+		var containerNode;
 
-    var PNGs = new Array();
+		var imageToReplace;
 
+		var newElement;
 
-    //  Find all PNG IMG elements in the document.
+		var PNGs = [];
 
-    for (var i = 0; i < document.images.length; i++)
-    {
+		// Find all PNG IMG elements in the document.
 
-      if (document.images[i].src.indexOf('.png') == document.images[i].src.length - 4)
-      {
+		for (var i = 0; i < document.images.length; i++) {
 
-        PNGs[PNGs.length] = document.images[i];
+			if (document.images[i].src.indexOf('.png') == document.images[i].src.length - 4) {
 
-      }
+				PNGs[PNGs.length] = document.images[i];
+			}
+		}
 
-    }
+		// Replace all PNG IMG elements with DIV elements to which Microsoft's
+		// suggested work-around are applied.
 
+		for (var j = 0; j < PNGs.length; j++) {
 
-    //  Replace all PNG IMG elements with DIV elements to which Microsoft's
-    //  suggested work-around are applied.
+			containerNode = PNGs[j].parentNode;
 
-    for (var i = 0; i < PNGs.length; i++)
-    {
+			imageToReplace = PNGs[j];
 
-      containerNode = PNGs[i].parentNode;
+			newElement = document.createElement('div');
 
-      imageToReplace = PNGs[i];
+			newElement.style.width = imageToReplace.width;
+			newElement.style.height = imageToReplace.height;
+			newElement.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + imageToReplace.src + "', sizingMethod='scale');";
 
-      newElement = document.createElement('div');
+			newElement.className = imageToReplace.className;
 
-      newElement.style.width = imageToReplace.width;
-      newElement.style.height = imageToReplace.height;
-      newElement.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + imageToReplace.src + "', sizingMethod='scale');";
-
-      newElement.className = imageToReplace.className;
-
-      containerNode.replaceChild(newElement, imageToReplace);
-
-    }
-
-  }
-
+			containerNode.replaceChild(newElement, imageToReplace);
+		}
+	}
 }
