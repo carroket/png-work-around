@@ -6,7 +6,7 @@ This is an ancient PNG work-around that is useless now, but perhaps historically
 
 Microsoft Internet Explorer 6 for Windows does not support variable opacity in PNG images as most actively developed Web browsers do, so I found and further developed a work-around for this peculiar omission.
 
-Microsoft is aware of the problem and suggests a work-around in Microsoft Knowledge Base [Article Q294714](http://support.microsoft.com/support/kb/articles/Q294/7/14.asp).
+Microsoft is aware of the problem and suggests a work-around in Microsoft Knowledge Base [Article 294714](http://support.microsoft.com/en-us/kb/294714).
 
 Microsoft suggests using a DIV element with the following style definition rather than using an IMG element:
 
