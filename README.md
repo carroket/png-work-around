@@ -46,7 +46,7 @@ One may wish to discriminate between different versions of Internet Explorer (Al
 
 ## Usage
 
-First, load this file in each HTML/XHTML file that you would like to use the work-around:
+First, load this file in each HTML file that you would like to use the work-around:
 
 ```html
 <SCRIPT TYPE="text/javascript" SRC="./png_work-around.js"></SCRIPT>
@@ -58,7 +58,7 @@ If you do not need to run any other JavaScript code that automatically assigns a
 onLoad="stylePNGs();"
 ```
 
-However, if you forget that you are assigning an event handler to the window.onload event directly within your HTML/XHTML, you may find yourself wondering what happened later after you install something else and end up with an event handler conflict.  One way to prevent such conflicts is to initialize all of your JavaScript code in a single common file.  To that end, I have created such a file--start.js--which accompanies this file and includes its own easy usage instructions.  Please refer to it for more information.
+However, if you forget that you are assigning an event handler to the window.onload event directly within your HTML, you may find yourself wondering what happened later after you install something else and end up with an event handler conflict.  One way to prevent such conflicts is to initialize all of your JavaScript code in a single common file.  To that end, I have created such a file--start.js--which accompanies this file and includes its own easy usage instructions.  Please refer to it for more information.
 
 Finally, create CSS styles for the resulting DIV elements.  For example, if you already have a style definition for "IMG.MenuItem", you will want to create a similar one for "DIV.MenuItem".  For your PNG images that are linked, you may want to add "cursor: pointer" since Internet Explorer 6 does not by default use the pointer cursor over linked DIV elements.
 
