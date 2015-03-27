@@ -49,13 +49,13 @@ One may wish to discriminate between different versions of Internet Explorer (Al
 First, load this file in each HTML file that you would like to use the work-around:
 
 ```html
-<SCRIPT TYPE="text/javascript" SRC="./png_work-around.js"></SCRIPT>
+<script src="./png-work-around.js"></script>
 ```
 
 If you do not need to run any other JavaScript code that automatically assigns an event handler to the window.onload event, you can just put the following in the opening BODY tag for each page:
 
 ```html
-onLoad="stylePNGs();"
+onload="stylePNGs();"
 ```
 
 However, if you forget that you are assigning an event handler to the window.onload event directly within your HTML, you may find yourself wondering what happened later after you install something else and end up with an event handler conflict.  One way to prevent such conflicts is to initialize all of your JavaScript code in a single common file.  To that end, I have created such a file--start.js--which accompanies this file and includes its own easy usage instructions.  Please refer to it for more information.
